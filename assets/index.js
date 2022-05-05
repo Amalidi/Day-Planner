@@ -29,27 +29,38 @@ const workingHours = [
 
     {
         label: "1PM" , 
-        key : 1
+        key : 13
     },
 
     {
         label: "2PM" , 
-        key : 2
+        key : 14
     },
 
     {
         label: "3PM" , 
-        key : 3
+        key : 15
     },
 
     {
         label: "4PM" , 
-        key : 4
+        key : 16
     },
 
     {
         label: "5PM" , 
-        key : 5
+        key : 17
     },
 
 ]
+
+// to click the button the textarea will need to be targetted
+// then save it in local storage
+// add an event Listener to the container div
+// on click store in local storage 
+// add a data attribute on the button (eg. data-key = 17)
+
+
+
+
+
