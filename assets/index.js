@@ -1,8 +1,5 @@
 console.log("hello")
 
-// render the time 
-const renderDate = () => {};
-
 // render each time block
 const renderTimeBlocks = () => {};
 
@@ -54,11 +51,29 @@ const workingHours = [
 
 ]
 
+// display current date and time from moment.js
+$("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
+
+
 // to click the button the textarea will need to be targetted
 // then save it in local storage
 // add an event Listener to the container div
 // on click store in local storage 
 // add a data attribute on the button (eg. data-key = 17)
+
+const namebtn = $("#All-btn");
+
+const handleAllButtonClick = () => {
+    console.log("view btn click");
+};
+
+//function to handle click on save buttons
+
+
+namebtn.click(handleAllButtonClick);
+
+console.log(namebtn)
+
 
 
 
