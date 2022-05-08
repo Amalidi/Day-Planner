@@ -50,9 +50,29 @@ const workingHours = [
 
 ]
 
-const getEventForTimeBlock = () => {
+// display current date and time from moment.js
+// const currentDate = $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
+const renderDate = () => {
+    const currentDate = $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
+    $("#currentDay").append(currentDate);
+  };
+
+const getEventForTimeBlock = (workingHours) => {
 
 }
+
+const getClassName = (workingHours) => {
+   const currentHour = moment().hour();
+    // when workingHours is present
+    if(workingHours ===currentHour){
+        return "present";
+    }
+    if(workingHours >currentHour){
+    return "future"
+    }
+    return "past"
+    // when workingHours is future
+};
 
 
 const renderTimeBlocks = () => {
@@ -61,15 +81,15 @@ const renderTimeBlocks = () => {
     const renderTimeBlock = (workingHours) => {
         console.log(workingHours);
         // create time block
-        const timeBlock = `<div class="row p-2">
+        const timeBlock = `<div class="row p-2 my-2 ${getClassName(workingHours.key)}">
         <div class="col-md-1 col-sm-12 text-center my-1 d-flex flex-column justify-content-center">${workingHours.label} </div>
         <textarea class="col-md-9 col-sm-12" rows="3">${getEventForTimeBlock(workingHours.key)}</textarea>
-        <div  class="col-md-2 col-sm-12 text-center my-1 d-flex flex-column justify-content-center">
+        <div  class="col-md-2 col-sm-12 texht-center my-1 d-flex flex-column justify-content-center">
         <button type="button" data-hour=${workingHours.key} class="btn btn-success">Save</button>
         </div>`;
         // append time block
         timeBlocks.append(timeBlock)
-        
+
       };
       workingHours.forEach(renderTimeBlock);
 
@@ -78,6 +98,7 @@ const renderTimeBlocks = () => {
 const onReady = () => {
     console.log("ready")
     renderTimeBlocks();
+    renderDate();
 }
 
 $(document).ready(onReady);
@@ -110,10 +131,10 @@ $(document).ready(onReady);
 
 // display current date and time from moment.js
 // const currentDate = $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
-const renderDate = () => {
-    const currentDate = $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
-    $("#currentDay").append(currentDate);
-  };
+// const renderDate = () => {
+//     const currentDate = $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
+//     $("#currentDay").append(currentDate);
+//   };
   
 
 
@@ -133,7 +154,7 @@ const renderDate = () => {
 //     writeToLS(targetKey, taskValue);
 //   };
 
-const namebtn = $("#All-btn");
+// const namebtn = $("#All-btn");
 
 // const handleAllButtonClick = () => {
 //     console.log("view btn click");
@@ -195,7 +216,7 @@ const namebtn = $("#All-btn");
 const renderPlanner = () => {
     // render date in header
     renderDate();
-    renderTimeBlock();
+    // renderTimeBlock();
   };
   
   //instruction on load of page
