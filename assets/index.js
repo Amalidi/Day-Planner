@@ -1,4 +1,3 @@
-console.log("hello")
 
 const timeBlocks = $("#time-blocks")
 
@@ -84,7 +83,6 @@ const renderTimeBlocks = () => {
     
 
     const renderTimeBlock = (workingHours) => {
-        console.log(workingHours);
         // create time block
         const timeBlock = `<div class="row p-2 my-2 ${getClassName(workingHours.key)}">
         <div class="col-md-1 col-sm-12 text-center my-1 d-flex flex-column justify-content-center">${workingHours.label} </div>
@@ -100,18 +98,14 @@ const renderTimeBlocks = () => {
     };
 
 const onReady = () => {
-    console.log("ready")
     renderTimeBlocks();
     renderDate();
 }
 const saveToLS = (event) =>{
     const target = $(event.target)
     if(target.is("button")){
-        console.log("click");
         const key = target.attr("data-hour")
-        console.log(key)
         const value = $(`textarea[data-textarea-key = '${key}']`).val().trim();
-        console.log(value)
 
         const planner = readFromLocalStorage("planner", {});
 
