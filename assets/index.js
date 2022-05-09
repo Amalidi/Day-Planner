@@ -46,16 +46,6 @@ const workingHours = [
         label: "5PM" , 
         key : 17
     },
-
-    {
-        label: "6PM" , 
-        key : 18
-    },
-
-    {
-        label: "7PM" , 
-        key : 19
-    },
 ]
 
 // display current date and time from moment.js
